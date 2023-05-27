@@ -70,24 +70,9 @@
       </div>
     </div>
   </main>
-  <button id="my-button">test</button>
-  <div class="modal">안녕</div>
-  <!-- <script defer>
-    document.getElementById("my-button").onclick = function () {
-      fetch("https://jlpt-vocab-api.vercel.app/api/words/random?level=1")
-        .then((response) => response.json())
-        .then((data) => {
-          const word = document.createElement('div');
-          word.textContent = data.word;
-          console.log(data.word)
-          console.log(word)
-          document.body.appendChild(word);
-          const test2 = document.getElementById('word')
-          test2.appendChild(test);
-        }
-        );
-    };
-  </script> -->
+  <div class="modal">
+    <button class="refresh">refresh</button>
+  </div>
   <script defer src="app.js">
   </script>
 </body>

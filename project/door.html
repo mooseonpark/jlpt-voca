@@ -14,13 +14,35 @@
     <img class="door" src="https://www.mediaus.co.kr/news/photo/202303/304227_205139_2428.jpg" alt="suzume's door">
     <img class="open-door" src="./img/door.png" alt="open-doors">
     <button class="suzume" onclick="window.open('voca.html', '_self')">✨🪑</button>
-    <img class='text-bubble'
+    <img class='bubble'
       src="https://media0.giphy.com/media/3tLfKrc4pLWiTkAAph/200.gif?cid=6c09b952shmzt4zia4a2ul966sdp6w3fk2rh48nrv5ntv2y9&ep=v1_gifs_search&rid=200.gif&ct=s"
       alt="text-bubble">
+    <img class='walking' src="./img/walk.gif" alt="walking">
     <img class="wave1" src="./img/wave.png" alt="wave">
     <img class="wave2" src="./img/wave2.png" alt="wave">
     <img class="wave3" src="./img/wave3.png" alt="wave">
+    <div class="up"></div>
+    <img class='night' src="./img/night.png" alt="night">
+    <img class='moon' src="./img/moon.png" alt="moon">
+    <div class="order">
+      <p>문을 클릭하여 낮의 세계로 돌아간 뒤 문을 열어주세요.</p>
+    </div>
   </div>
+  <script>
+    const walking = document.querySelector('.walking');
+    walking.addEventListener('click', () => {
+    })
+
+    const bubble = document.querySelector('.bubble');
+    bubble.addEventListener('click', () => {
+      window.scrollTo(0, 1000)
+    })
+
+    const door = document.querySelector('.up');
+    door.addEventListener('click', () => {
+      window.scrollTo(0, 0)
+    })
+  </script>
 </body>
 
 </html>
