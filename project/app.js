@@ -1,9 +1,3 @@
-// document.getElementById('btn').onclick = function () {
-// 	fetch('https://jlpt-vocab-api.vercel.app/api/words/random?level=1')
-// 		.then((response) => response.json())
-// 		.then((data) => console.log(data));
-// };
-
 const toggleButton = document.querySelector('.navbar-toggle');
 const menu = document.querySelector('.navbar-menu');
 const side = document.querySelector('.navbar-side');
@@ -23,7 +17,7 @@ toggleButton.addEventListener('click', () => {
 // 	side.classList.toggle('active');
 // });
 
-// /ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ/
+// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ/
 // const clickLevel = document.querySelectorAll('.click');
 
 const modal = document.querySelector('.modal');
@@ -37,6 +31,8 @@ const threeRandom = document.querySelector('.random .three');
 const fourRandom = document.querySelector('.random .four');
 const fiveRandom = document.querySelector('.random .five');
 
+const main = document.querySelector('.main');
+
 let clickedNumber = () => {
 	console.log(document.querySelector('div').textContent);
 	return document.querySelector('.random').textContent;
@@ -49,7 +45,7 @@ const callWords = () => {
 		.then((data) => {
 			console.log(data);
 			console.log(data.furigana, data.word);
-			// const word = document.createElement('div');
+			// const word =   document.createElement('div');
 			// word.textContent = data.word;
 			// document.body.appendChild(word);
 			modal.innerHTML = `
@@ -63,7 +59,7 @@ const callWords = () => {
 
 oneRandom.addEventListener('click', () => {
 	modal.style.display = 'block';
-	document.body.style.backgroundColor = '#f3f3f3';
+	main.innerHTML = '';
 	callWords();
 });
 
@@ -90,4 +86,10 @@ const text = document.querySelector('.bubble');
 
 text.addEventListener('click', () => {
 	console.log('five sssss');
+});
+
+//-----
+const darkmode = document.querySelector('.darkmode');
+darkmode.addEventListener('click', () => {
+	console.log('222222222222222222222222222222222');
 });
