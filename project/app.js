@@ -20,6 +20,8 @@ toggleButton.addEventListener('click', () => {
 
 // modal --------------------------------------------------------
 const modal = document.querySelector('.modal');
+const main = document.querySelector('.main');
+const p = document.querySelector('.modal p');
 
 const oneRandom = document.querySelector('.random .one');
 const twoRandom = document.querySelector('.random .two');
@@ -27,8 +29,11 @@ const threeRandom = document.querySelector('.random .three');
 const fourRandom = document.querySelector('.random .four');
 const fiveRandom = document.querySelector('.random .five');
 
-const main = document.querySelector('.main');
-const p = document.querySelector('.modal p');
+const oneAll = document.querySelector('.all .one');
+const twoAll = document.querySelector('.all .two');
+const threeAll = document.querySelector('.all .three');
+const fourAll = document.querySelector('.all .four');
+const fiveAll = document.querySelector('.all .five');
 
 let clickedNumber = document.querySelector('.level-box');
 clickedNumber.addEventListener('click', (e) => {
@@ -71,45 +76,17 @@ const callWords = () => {
 		});
 };
 
-// each level box 1 ~ 5 --------------------------------------
-oneRandom.addEventListener('click', () => {
-	modal.style.display = 'block';
-	main.style.display = 'none';
-	callWords();
-});
-
-twoRandom.addEventListener('click', () => {
-	modal.style.display = 'block';
-	main.style.display = 'none';
-	callWords();
-});
-threeRandom.addEventListener('click', () => {
-	modal.style.display = 'block';
-	main.style.display = 'none';
-	callWords();
-});
-fourRandom.addEventListener('click', () => {
-	modal.style.display = 'block';
-	main.style.display = 'none';
-	callWords();
-});
-fiveRandom.addEventListener('click', () => {
-	modal.style.display = 'block';
-	main.style.display = 'none';
-	callWords();
-});
-
 // call all words -----------------------------------------------
 const callAllWords = () => {
 	const time = document.createElement('h1');
 	modal.appendChild(time).innerText = '⏱단어를 불러오는 중입니다!⏱';
-	setTimeout(() => modal.removeChild(time), 1200);
+	setTimeout(() => modal.removeChild(time), 900);
 
-	fetch(`https://jlpt-vocab-api.vercel.app/api/words/all?level=${1}`)
+	fetch(
+		`https://jlpt-vocab-api.vercel.app/api/words/all?level=${clickedNumber}`
+	)
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data.map((word) => word));
-			console.log(data.map((w) => w)[0]);
 			const num = document.createElement('h2');
 			const p = document.createElement('p');
 			const button = document.createElement('button');
@@ -119,10 +96,10 @@ const callAllWords = () => {
 			).innerText = `총 ${data.length}개의 단어를 불러왔습니다.`;
 			modal.appendChild(p).innerText = data.map(
 				(word) => `
-      🔸 히라가나 : ${word.furigana}
-      🔹 한자 : ${word.word}
-      🔸 발음 : ${word.romaji}
-      🔹 뜻 : ${word.meaning}
+      👉 히라가나 : ${word.furigana}
+      👉 한자 : ${word.word}
+      👉 발음 : ${word.romaji}
+      👉 뜻 : ${word.meaning}
 
       🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
       
@@ -139,11 +116,36 @@ const callAllWords = () => {
 	setTimeout(() => modal.removeChild(time1), 1200);
 };
 
-const oneAll = document.querySelector('.all .one');
-const twoAll = document.querySelector('.all .two');
-const threeAll = document.querySelector('.all .three');
-const fourAll = document.querySelector('.all .four');
-const fiveAll = document.querySelector('.all .five');
+// each level box 1 ~ 5 --------------------------------------
+oneRandom.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callWords();
+});
+
+twoRandom.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callWords();
+});
+
+threeRandom.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callWords();
+});
+
+fourRandom.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callWords();
+});
+
+fiveRandom.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callWords();
+});
 
 oneAll.addEventListener('click', () => {
 	modal.style.display = 'block';
@@ -151,17 +153,29 @@ oneAll.addEventListener('click', () => {
 	callAllWords();
 });
 
-//-----
-// const walking = document.querySelector('.walking');
-// walking.addEventListener('click', () => {
-// 	console.log('22222');
-// });
+twoAll.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callAllWords();
+});
 
-// const text = document.querySelector('.bubble');
+threeAll.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callAllWords();
+});
 
-// text.addEventListener('click', () => {
-// 	console.log('five sssss');
-// });
+fourAll.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callAllWords();
+});
+
+fiveAll.addEventListener('click', () => {
+	modal.style.display = 'block';
+	main.style.display = 'none';
+	callAllWords();
+});
 
 //-----
 const darkmode = document.querySelector('.darkmode');
